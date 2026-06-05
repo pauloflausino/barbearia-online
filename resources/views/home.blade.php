@@ -9,7 +9,7 @@
 <body class="bg-slate-950 text-slate-100 antialiased font-sans">
 
     <!-- Hero Section -->
-    <header class="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 py-24 px-6 border-b border-slate-900">
+    <header class="relative overflow-hidden bg-linear-to-b from-slate-900 via-slate-950 to-slate-950 py-24 px-6 border-b border-slate-900">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.08),transparent_45%)]"></div>
         
         <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
