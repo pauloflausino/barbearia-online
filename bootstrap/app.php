@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use App\Http\Middleware\TenantMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -11,6 +12,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+
+        // 🔑 PASSO 1: Registrar o apelido 'tenant' que suas rotas estão cobrando
+        $middleware->alias([
+            'tenant' => TenantMiddleware::class,
+        ]);
+
+
         $middleware->redirectGuestsTo(function ($request) {
         // Tenta capturar o slug tanto se vier como parâmetro de rota ou pela URL (/b/slug/...)
         $tenantSlug = $request->route('tenant_slug') ?? $request->segment(2);
